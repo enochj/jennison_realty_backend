@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 
 function mergeWithPhotos ($array) {
-  foreach ($listings as $listing) {
+  foreach ($array as $listing) {
     $id = $listing["id"];
     $photos = Photo::select('photos.mediamodificationtimestamp', 'photos.mediaurl')->where('listing_id','=',$id)->get()->toArray();
     $photo_array[] = $photos;
